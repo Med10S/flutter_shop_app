@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "57651732127",
+    "project_id": "e-learning-app-cd4b7",
+    "storage_bucket": "e-learning-app-cd4b7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:57651732127:android:177f50a8c0a7b2a9a6ccaa",
+        "android_client_info": {
+          "package_name": "com.example.flutter_shop_app_dbestech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "57651732127-sm4jqdv6ssuc7g7flrfnsrg25h9rhuae.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOsO26TsZox45svriQ9bJP0MudPnBye_w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "57651732127-sm4jqdv6ssuc7g7flrfnsrg25h9rhuae.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
