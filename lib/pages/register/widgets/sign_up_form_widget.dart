@@ -20,12 +20,12 @@ class SignUpForm extends ConsumerStatefulWidget {
 }
 
 class _SignUpFormState extends ConsumerState<SignUpForm> {
-  late SignInController signInController;
+  late SignUpController signInController;
   late FToast fToast;
 
   @override
   void initState() {
-    signInController = SignInController(ref: ref);
+    signInController = SignUpController(ref: ref);
     fToast = FToast();
     fToast.init(context);
     super.initState();

@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 
 Widget appTextField(
-    {required String labelText,
+    {TextEditingController? controller,
+    String? labelText,
     required IconData icon,
     bool obscureText = false,
     required String hintText,
     void Function(String value)? func}) {
   return TextField(
+    controller: controller,
     obscureText: obscureText,
     onChanged: (value) => func!(value),
     decoration: InputDecoration(
+        hoverColor: Colors.black,
         prefixIcon: Icon(
           icon,
         ),

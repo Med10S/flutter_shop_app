@@ -13,7 +13,10 @@ Widget toast({required String msg, required Color color, required Icon icon}) {
         const SizedBox(
           width: 12.0,
         ),
-        Text(msg),
+        Flexible(
+            child: Text(
+          msg,
+        )),
       ],
     ),
   );

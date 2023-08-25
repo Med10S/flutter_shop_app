@@ -4,9 +4,14 @@ import 'package:flutter_shop_app_dbestech/common/widgets/text_widget.dart';
 
 import '../utils/colors.dart';
 
-AppBar buildAppBar({required String title, required BuildContext context}) {
+AppBar buildAppBar(
+    {required String title,
+    required BuildContext context,
+    Widget? leading,
+    bool backButton = kIsWeb}) {
   return AppBar(
-    automaticallyImplyLeading: kIsWeb ? false : true,
+    leading: leading,
+    automaticallyImplyLeading: !backButton ? false : true,
     bottom: PreferredSize(
       preferredSize: const Size.fromHeight(1),
       child: Container(

@@ -8,11 +8,11 @@ import 'package:fluttertoast/fluttertoast.dart';
 import '../../../common/widgets/popup_message.dart';
 import '../exeptions/sing_up_exeption_failure.dart';
 
-class SignInController {
+class SignUpController {
   final _db = FirebaseAuth.instance;
   late WidgetRef ref;
 
-  SignInController({required this.ref});
+  SignUpController({required this.ref});
 
   Future<void> handleSignUp({required FToast fToast}) async {
     var state = ref.read(registerStateNotifierProvider);

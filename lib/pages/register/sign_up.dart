@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/colors.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/dimention.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/global_loader/global_loader.dart';
+import 'package:flutter_shop_app_dbestech/common/utils/routes_router/router.dart';
 import 'package:flutter_shop_app_dbestech/common/widgets/text_widget.dart';
 import 'package:flutter_shop_app_dbestech/pages/register/widgets/sign_up_form_widget.dart';
 
@@ -17,7 +18,21 @@ class SingUp extends ConsumerWidget {
       color: Colors.white,
       child: SafeArea(
           child: Scaffold(
-              appBar: buildAppBar(title: "Sign Up", context: context),
+              appBar: buildAppBar(
+
+                  ///a cause du passage de l'activiter register a sign in avec le back button integer
+                  ///il fesait un pop se qui ne construit pas la page donc fToast n'est initialiser
+                  ///donc j'ai modifier la logique de retour en utlisant Navigator.pushNamed(context, AppRoutes.singIn);
+
+                  leading: InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, AppRoutes.singIn);
+                    },
+                    child: const Icon(Icons.arrow_back),
+                  ),
+                  title: "Sign Up",
+                  context: context,
+                  backButton: false),
               body: loader == false
                   ? SingleChildScrollView(
                       child: Column(

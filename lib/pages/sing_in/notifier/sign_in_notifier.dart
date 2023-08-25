@@ -12,3 +12,7 @@ class SignInNotifier extends StateNotifier<SignInState> {
     state = state.copyWith(password: password);
   }
 }
+
+final signInNotifierProvider =
+    StateNotifierProvider<SignInNotifier, SignInState>(
+        (ref) => SignInNotifier());

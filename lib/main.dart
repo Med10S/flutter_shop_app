@@ -1,16 +1,14 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/app_styles.dart';
-import 'package:flutter_shop_app_dbestech/firebase_options.dart';
+import 'package:flutter_shop_app_dbestech/global.dart';
 import 'package:flutter_shop_app_dbestech/pages/welcome/welcome.dart';
 
 import 'common/utils/dimention.dart';
 import 'common/utils/routes_router/routes.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  Global.init();
   runApp(const ProviderScope(child: MyApp()));
 }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/colors.dart';
+import 'package:flutter_shop_app_dbestech/common/utils/routes_router/router.dart';
 
 import '../../common/widgets/app_shadow.dart';
 import '../../common/widgets/text_widget.dart';
@@ -76,7 +77,7 @@ Widget _nextButton(int index, PageController controller, BuildContext context) {
         controller.animateToPage(index,
             duration: const Duration(milliseconds: 300), curve: Curves.linear);
       } else {
-        Navigator.pushNamed(context, "/singIn");
+        Navigator.pushNamed(context, AppRoutes.singIn);
       }
     },
     child: Container(
