@@ -1,23 +1,37 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/routes_router/router.dart';
+import 'package:flutter_shop_app_dbestech/global.dart';
 
-import '../../../pages/application/application.dart';
-import '../../../pages/register/sign_up.dart';
-import '../../../pages/sing_in/sing_in.dart';
-import '../../../pages/welcome/welcome.dart';
+import '../../../pages/application/view/application.dart';
+import '../../../pages/register/view/sign_up.dart';
+import '../../../pages/sing_in/view/sing_in.dart';
+import '../../../pages/welcome/view/welcome.dart';
 
-Route<dynamic> onGenerate(RouteSettings settings) {
-  switch (settings.name) {
-    //------------------pollution-----------------------
-    case AppRoutes.singIn:
-      return CupertinoPageRoute(builder: (_) => const SingIn());
-    case AppRoutes.singUp:
-      return CupertinoPageRoute(builder: (_) => const SingUp());
-    case AppRoutes.application:
-      return CupertinoPageRoute(builder: (_) => const Application());
-    default:
-      return CupertinoPageRoute(
-        builder: (_) => Welcome(),
-      );
+class AppPages {
+  static MaterialPageRoute onGenerate(RouteSettings settings) {
+    bool isloggedIn = Global.storageService.isloggedIn();
+    bool isTheFirstTime = Global.storageService.getDivisefirstOpen();
+    if (settings.name == AppRoutes.welcome && isTheFirstTime) {
+      if (isloggedIn) {
+        return MaterialPageRoute(
+            builder: (_) => const Application(), settings: settings);
+      } else {
+        return MaterialPageRoute(
+            builder: (_) => const SingIn(), settings: settings);
+      }
+    }
+    switch (settings.name) {
+      case AppRoutes.singIn:
+        return MaterialPageRoute(
+            builder: (_) => const SingIn(), settings: settings);
+      case AppRoutes.singUp:
+        return MaterialPageRoute(
+            builder: (_) => const SingUp(), settings: settings);
+      case AppRoutes.application:
+        return MaterialPageRoute(
+            builder: (_) => const Application(), settings: settings);
+      default:
+        return MaterialPageRoute(builder: (_) => Welcome(), settings: settings);
+    }
   }
 }

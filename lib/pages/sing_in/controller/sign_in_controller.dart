@@ -11,7 +11,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../../common/utils/routes_router/router.dart';
 import '../../../common/widgets/popup_message.dart';
-import '../../register/exeptions/sing_up_exeption_failure.dart';
+import '../../register/err/sing_up_exeption_failure.dart';
+import '../repo/sign_in_repo.dart';
 
 class SignInController {
   WidgetRef ref;
@@ -38,8 +39,7 @@ class SignInController {
     }
     ref.read(appLoaderProvider.notifier).setLoaderValue(true);
     try {
-      final credential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
+      final credential = await SignInRepo.forebaseSignIn(email, password);
 
       if (credential.user == null) {
         showToastError(fToast: fToast, msg: "User not found");
