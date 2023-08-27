@@ -3,9 +3,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/dimention.dart';
-import 'package:flutter_shop_app_dbestech/pages/welcome/widgets.dart';
+import 'package:flutter_shop_app_dbestech/pages/welcome/view/widgets/widgets.dart';
 
-import 'notifier/welcome_notifier.dart';
+import '../notifier/welcome_notifier.dart';
 
 // ignore: must_be_immutable
 class Welcome extends ConsumerWidget {

@@ -5,9 +5,9 @@ import 'package:flutter_shop_app_dbestech/common/utils/dimention.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/global_loader/global_loader.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/routes_router/router.dart';
 import 'package:flutter_shop_app_dbestech/common/widgets/text_widget.dart';
-import 'package:flutter_shop_app_dbestech/pages/register/widgets/sign_up_form_widget.dart';
+import 'package:flutter_shop_app_dbestech/pages/register/view/widgets/sign_up_form_widget.dart';
 
-import '../../common/widgets/app_bar_widget.dart';
+import '../../../common/widgets/app_bar_widget.dart';
 
 class SingUp extends ConsumerWidget {
   const SingUp({super.key});

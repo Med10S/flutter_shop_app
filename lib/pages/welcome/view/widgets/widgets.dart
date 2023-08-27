@@ -1,10 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/colors.dart';
+import 'package:flutter_shop_app_dbestech/common/utils/constants.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/routes_router/router.dart';
+import 'package:flutter_shop_app_dbestech/global.dart';
 
-import '../../common/widgets/app_shadow.dart';
-import '../../common/widgets/text_widget.dart';
+import '../../../../common/widgets/app_shadow.dart';
+import '../../../../common/widgets/text_widget.dart';
 
 Widget appOnboardingPage(PageController controller, BuildContext context,
     {required String imagePath,
@@ -78,6 +80,9 @@ Widget _nextButton(int index, PageController controller, BuildContext context) {
             duration: const Duration(milliseconds: 300), curve: Curves.linear);
       } else {
         Navigator.pushNamed(context, AppRoutes.singIn);
+        //remenber if we are fisrt time open the application
+        Global.storageService
+            .setBool(AppConstants.STORAGE_DIVICE_OPEN_FIRST_KEY, true);
       }
     },
     child: Container(

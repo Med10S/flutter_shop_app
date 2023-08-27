@@ -18,6 +18,21 @@ BoxDecoration appBoxShadow(
       ]);
 }
 
+BoxDecoration appBoxShadowWithRadius(
+    {required Color backgroundColor, double sR = 1, double bR = 2}) {
+  return BoxDecoration(
+      color: backgroundColor,
+      borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+      boxShadow: [
+        BoxShadow(
+            color: Colors.grey.withOpacity(0.6),
+            spreadRadius: sR,
+            blurRadius: bR,
+            offset: const Offset(0, 1))
+      ]);
+}
+
 BoxDecoration appBoxDecorationTextField({
   required Color backgroundColor,
   required double borderRadius,

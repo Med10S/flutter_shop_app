@@ -6,11 +6,10 @@ import 'package:flutter_shop_app_dbestech/common/utils/dimention.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/routes_router/router.dart';
 import 'package:flutter_shop_app_dbestech/pages/sing_in/notifier/sign_in_notifier.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import '../../../common/utils/global_loader/global_loader.dart';
-import '../../../common/widgets/app_text_field.dart';
-import '../../../common/widgets/button_widget.dart';
-import '../controller/sign_in_controller.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+import '../../../../common/utils/global_loader/global_loader.dart';
+import '../../../../common/widgets/app_text_field.dart';
+import '../../../../common/widgets/button_widget.dart';
+import '../../controller/sign_in_controller.dart';
 
 class SignInForm extends ConsumerStatefulWidget {
   const SignInForm({

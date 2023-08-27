@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/global_loader/global_loader.dart';
 import 'package:flutter_shop_app_dbestech/common/widgets/app_bar_widget.dart';
-import 'package:flutter_shop_app_dbestech/pages/sing_in/widgets/sign_in_widget.dart';
+import 'package:flutter_shop_app_dbestech/pages/sing_in/view/widgets/sign_in_widget.dart';
 
-import '../../common/utils/colors.dart';
-import '../../common/widgets/text_widget.dart';
+import '../../../common/utils/colors.dart';
+import '../../../common/widgets/text_widget.dart';
 import 'widgets/sign_in_form_widget.dart';
 
 class SingIn extends ConsumerWidget {
