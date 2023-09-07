@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/colors.dart';
-import 'package:flutter_shop_app_dbestech/common/utils/dimention.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/global_loader/global_loader.dart';
-import 'package:flutter_shop_app_dbestech/common/utils/routes_router/router.dart';
+import 'package:flutter_shop_app_dbestech/common/utils/Routes/router.dart';
 import 'package:flutter_shop_app_dbestech/common/widgets/text_widget.dart';
 import 'package:flutter_shop_app_dbestech/pages/register/view/widgets/sign_up_form_widget.dart';
 
@@ -39,16 +39,16 @@ class SingUp extends ConsumerWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
-                            height: Dimenssion.height20dp * 2,
+                            height: 40.h,
                           ),
-                          Center(
-                            child: textNormal(
+                          const Center(
+                            child: TextNormal(
                                 text: "Enter your details & free sign up ",
                                 texteSize: 14,
                                 textColors: AppColors.primaryThreeElementText),
                           ),
                           SizedBox(
-                            height: Dimenssion.height20dp * 2,
+                            height: 40.h,
                           ),
                           const SignUpForm(),
                         ],

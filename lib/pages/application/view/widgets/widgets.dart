@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/colors.dart';
-import 'package:flutter_shop_app_dbestech/common/utils/dimention.dart';
+import 'package:flutter_shop_app_dbestech/common/utils/image_res.dart';
+import 'package:flutter_shop_app_dbestech/pages/home/view/home.dart';
 
 var bottomTabs = <BottomNavigationBarItem>[
   BottomNavigationBarItem(
     backgroundColor: AppColors.primaryBackgroud,
     activeIcon: _bottomContainer(image: false, color: AppColors.primaryElement),
-    icon:
-        _bottomContainer(image: false, color: AppColors.primaryFourElementText),
+    icon: _bottomContainer(
+        image: false, color: AppColors.primaryFourthElementText),
     label: "Home",
   ),
   BottomNavigationBarItem(
@@ -16,7 +18,7 @@ var bottomTabs = <BottomNavigationBarItem>[
         image: false, color: AppColors.primaryElement, iconData: Icons.search),
     icon: _bottomContainer(
         image: false,
-        color: AppColors.primaryFourElementText,
+        color: AppColors.primaryFourthElementText,
         iconData: Icons.search),
     label: "Search",
   ),
@@ -28,7 +30,7 @@ var bottomTabs = <BottomNavigationBarItem>[
         iconData: Icons.play_arrow_rounded),
     icon: _bottomContainer(
         image: false,
-        color: AppColors.primaryFourElementText,
+        color: AppColors.primaryFourthElementText,
         iconData: Icons.play_arrow_rounded),
     label: "Play",
   ),
@@ -40,7 +42,7 @@ var bottomTabs = <BottomNavigationBarItem>[
         iconData: Icons.message_rounded),
     icon: _bottomContainer(
         image: false,
-        color: AppColors.primaryFourElementText,
+        color: AppColors.primaryFourthElementText,
         iconData: Icons.message_rounded),
     label: "Message",
   ),
@@ -50,7 +52,7 @@ var bottomTabs = <BottomNavigationBarItem>[
         image: false, color: AppColors.primaryElement, iconData: Icons.person),
     icon: _bottomContainer(
         image: false,
-        color: AppColors.primaryFourElementText,
+        color: AppColors.primaryFourthElementText,
         iconData: Icons.person),
     label: "Profile",
   ),
@@ -83,13 +85,13 @@ Widget _bottomContainer(
     {bool image = true,
     double widthImage = 20,
     double heightImage = 20,
-    String imagePath = "assets/icons/apple-logo.png",
+    String imagePath = IconsRes.appeleLogo,
     IconData iconData = Icons.home_rounded,
     double size = 25,
     required Color color}) {
   return SizedBox(
-    width: Dimenssion.width5dp * 4,
-    height: Dimenssion.height5dp * 4,
+    width: 20.w,
+    height: 20.h,
     child: _appImageWithColor(
         imagePath: imagePath,
         image: image,
@@ -102,7 +104,7 @@ Widget _bottomContainer(
 }
 
 Widget _appImageWithColor(
-    {String imagePath = "assets/icons/apple-logo.png",
+    {String imagePath = IconsRes.appeleLogo,
     double widthImage = 16,
     double heightImage = 16,
     bool image = true,
@@ -125,13 +127,7 @@ Widget _appImageWithColor(
 
 Widget appScreens({required int index}) {
   List<Widget> sreens = const [
-    Center(
-      child: Icon(
-        Icons.home_rounded,
-        color: AppColors.primaryElement,
-        size: 100,
-      ),
-    ),
+    Home(),
     Center(
       child: Icon(
         Icons.search,

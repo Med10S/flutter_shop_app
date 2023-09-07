@@ -1,27 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'application_nav_notifier.dart';
+part of 'home_controller.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$applicationNavIndexHash() =>
-    r'08f4c30f017dd45f402a184d15ce79b42f0043e2';
+String _$homeSreenBannerDotsHash() =>
+    r'dc63b6ef0518f2899c35d76880fe7e32a2741fad';
 
-/// See also [ApplicationNavIndex].
-@ProviderFor(ApplicationNavIndex)
-final applicationNavIndexProvider =
-    AutoDisposeNotifierProvider<ApplicationNavIndex, int>.internal(
-  ApplicationNavIndex.new,
-  name: r'applicationNavIndexProvider',
+/// See also [HomeSreenBannerDots].
+@ProviderFor(HomeSreenBannerDots)
+final homeSreenBannerDotsProvider =
+    NotifierProvider<HomeSreenBannerDots, int>.internal(
+  HomeSreenBannerDots.new,
+  name: r'homeSreenBannerDotsProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$applicationNavIndexHash,
+      : _$homeSreenBannerDotsHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$ApplicationNavIndex = AutoDisposeNotifier<int>;
+typedef _$HomeSreenBannerDots = Notifier<int>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member

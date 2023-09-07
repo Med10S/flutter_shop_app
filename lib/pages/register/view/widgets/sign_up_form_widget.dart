@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_shop_app_dbestech/common/utils/dimention.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../../../common/utils/colors.dart';
@@ -50,7 +50,7 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
                     .read(registerStateNotifierProvider.notifier)
                     .onUserNameChange(value)),
 
-            SizedBox(height: Dimenssion.height30dp),
+            SizedBox(height: 30.h),
             //email
             appTextField(
                 labelText: "Email",
@@ -60,7 +60,7 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
                     .read(registerStateNotifierProvider.notifier)
                     .onUserEmailChange(value)),
 
-            SizedBox(height: Dimenssion.height30dp),
+            SizedBox(height: 30.h),
             //password
             appTextField(
                 obscureText: true,
@@ -71,7 +71,7 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
                     .read(registerStateNotifierProvider.notifier)
                     .onUserPasswordChange(value)),
 
-            SizedBox(height: Dimenssion.height30dp),
+            SizedBox(height: 30.h),
             //confirm Password
             appTextField(
                 obscureText: true,
@@ -82,11 +82,11 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
                     .read(registerStateNotifierProvider.notifier)
                     .onUserRePasswordChange(value)),
 
-            SizedBox(height: Dimenssion.height20dp),
-            Align(
+            SizedBox(height: 20.h),
+            const Align(
               alignment: Alignment.centerLeft,
               child: Align(
-                child: textNormal(
+                child: TextNormal(
                     textAlign: TextAlign.start,
                     text:
                         "By creating an account you have to agree with our them & condition",
@@ -96,12 +96,12 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
             ),
             //register button
             SizedBox(
-              height: Dimenssion.height5dp * 15,
+              height: 75.h,
             ),
             Center(
                 child: appButton(
-                    width: Dimenssion.width5dp * 71,
-                    height: Dimenssion.height5dp * 10,
+                    width: 355.w,
+                    height: 50.h,
                     buttonName: "Register",
                     isLogin: true,
                     onTapEvent: () {

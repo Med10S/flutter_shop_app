@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop_app_dbestech/common/utils/image_res.dart';
 
 Widget thirdPartyLoging() {
   return Container(
@@ -6,10 +7,9 @@ Widget thirdPartyLoging() {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        _logingButtonOthers(imagePath: "assets/icons/google.png", padding: 8.0),
-        _logingButtonOthers(
-            imagePath: "assets/icons/apple-logo.png", padding: 8.0),
-        _logingButtonOthers(imagePath: "assets/icons/facebook.png", padding: 0),
+        _logingButtonOthers(imagePath: IconsRes.google, padding: 8.0),
+        _logingButtonOthers(imagePath: IconsRes.appeleLogo, padding: 8.0),
+        _logingButtonOthers(imagePath: IconsRes.facebook, padding: 0),
       ],
     ),
   );

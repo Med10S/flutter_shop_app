@@ -11,6 +11,5 @@ class ApplicationNavIndex extends _$ApplicationNavIndex {
 
   void changeIndex(int value) {
     state = value;
-    print(state);
   }
 }

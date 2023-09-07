@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/colors.dart';
-import 'package:flutter_shop_app_dbestech/common/utils/dimention.dart';
-import 'package:flutter_shop_app_dbestech/common/utils/routes_router/router.dart';
-import 'package:flutter_shop_app_dbestech/pages/sing_in/notifier/sign_in_notifier.dart';
+import 'package:flutter_shop_app_dbestech/common/utils/Routes/router.dart';
+import 'package:flutter_shop_app_dbestech/pages/sing_in/provider/sign_in_notifier.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import '../../../../common/utils/global_loader/global_loader.dart';
 import '../../../../common/widgets/app_text_field.dart';
@@ -34,16 +34,12 @@ class _SignInFormState extends ConsumerState<SignInForm> {
 
   @override
   Widget build(BuildContext context) {
-    final SignInProvider = ref.watch(signInNotifierProvider);
     final loader = ref.watch(appLoaderProvider);
 
     return !loader
         ? Container(
             padding: EdgeInsets.symmetric(
-                vertical: Dimenssion.height5dp * 2,
-                horizontal: kIsWeb
-                    ? Dimenssion.width2dp * 50
-                    : Dimenssion.width2dp * 7),
+                vertical: 10.h, horizontal: kIsWeb ? 100.w : 14.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -55,7 +51,7 @@ class _SignInFormState extends ConsumerState<SignInForm> {
                     func: (value) => ref
                         .read(signInNotifierProvider.notifier)
                         .onUserEmailChange(value)),
-                SizedBox(height: Dimenssion.height2dp * 15),
+                SizedBox(height: 30.h),
                 appTextField(
                     controller: _controller.passwordController,
                     obscureText: true,
@@ -77,31 +73,31 @@ class _SignInFormState extends ConsumerState<SignInForm> {
                       )),
                 ),
                 SizedBox(
-                  height: Dimenssion.height20dp * 5,
+                  height: 100.h,
                 ),
                 Center(
                     child: appButton(
-                        width: Dimenssion.width5dp * 71,
-                        height: Dimenssion.height5dp * 10,
+                        width: 355.w,
+                        height: 50.h,
                         buttonName: "Login",
                         isLogin: true,
                         onTapEvent: () {
                           _controller.handelSignIn(fToast: fToast);
                         })),
                 SizedBox(
-                  height: Dimenssion.height20dp,
+                  height: 20.h,
                 ),
                 Center(
                     child: appButton(
-                        width: Dimenssion.width5dp * 71,
-                        height: Dimenssion.height5dp * 10,
+                        width: 355.w,
+                        height: 50.h,
                         buttonName: "Register",
                         isLogin: false,
                         onTapEvent: () {
                           Navigator.pushNamed(context, AppRoutes.singUp);
                         })),
                 SizedBox(
-                  height: Dimenssion.height20dp,
+                  height: 20.h,
                 ),
               ],
             ),

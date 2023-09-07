@@ -21,7 +21,7 @@ Widget appButton(
           backgroundColor: isLogin ? AppColors.primaryElement : Colors.white,
           borderRadius: 14),
       child: Center(
-        child: textNormal(
+        child: TextNormal(
             text: buttonName,
             texteSize: 16,
             textColors:

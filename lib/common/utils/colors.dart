@@ -21,7 +21,7 @@ class AppColors {
   static const Color primaryThreeElementText =
       Color.fromARGB(255, 170, 170, 170);
 
-  static const Color primaryFourElementText =
+  static const Color primaryFourthElementText =
       Color.fromARGB(255, 204, 204, 204);
 
   static const Color primaryElementBG = Color.fromARGB(210, 238, 121, 99);

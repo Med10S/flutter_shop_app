@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_shop_app_dbestech/common/servises/storage.dart';
+import 'package:flutter_shop_app_dbestech/common/services/storage.dart';
 
 import 'firebase_options.dart';
 

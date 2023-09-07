@@ -5,12 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/global_loader/global_loader.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import '../../../common/widgets/popup_message.dart';
-import '../err/sing_up_exeption_failure.dart';
+import '../exceptions/sing_up_exeption_failure.dart';
 import '../provider/register_notifier.dart';
 import '../repo/sign_up_repo.dart';
 
 class SignUpController {
-  final _db = FirebaseAuth.instance;
   late WidgetRef ref;
 
   SignUpController({required this.ref});

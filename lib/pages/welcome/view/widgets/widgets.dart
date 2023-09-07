@@ -1,8 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/colors.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/constants.dart';
-import 'package:flutter_shop_app_dbestech/common/utils/routes_router/router.dart';
+import 'package:flutter_shop_app_dbestech/common/utils/Routes/router.dart';
 import 'package:flutter_shop_app_dbestech/global.dart';
 
 import '../../../../common/widgets/app_shadow.dart';
@@ -21,20 +22,20 @@ Widget appOnboardingPage(PageController controller, BuildContext context,
               child: Column(
                 children: [
                   Container(
-                      width: 200,
-                      margin: const EdgeInsets.only(top: 200),
-                      child: textNormal(
-                        textColor: false,
+                      width: 200.w,
+                      margin: EdgeInsets.only(top: 200.h),
+                      child: TextNormal(
+                        useTextColor: false,
                         text: title,
                         texteSize: 24,
                       )),
                   Container(
                     width: 250,
-                    margin: const EdgeInsets.only(top: 15),
+                    margin: EdgeInsets.only(top: 15.h),
                     //padding: const EdgeInsets.symmetric(horizontal: 50),
-                    child: textNormal(
+                    child: TextNormal(
                         text: subTitle,
-                        textColor: false,
+                        useTextColor: false,
                         texteSize: 16,
                         textColors: AppColors.primarySecondaryElementText),
                   ),
@@ -51,15 +52,15 @@ Widget appOnboardingPage(PageController controller, BuildContext context,
               child: Column(
                 children: [
                   Container(
-                      margin: const EdgeInsets.only(top: 15),
-                      child: textNormal(
+                      margin: EdgeInsets.only(top: 15.h),
+                      child: TextNormal(
                           text: title,
                           texteSize: 24,
                           textColors: AppColors.primaryText)),
                   Container(
-                    margin: const EdgeInsets.only(top: 15),
-                    padding: const EdgeInsets.symmetric(horizontal: 50),
-                    child: textNormal(
+                    margin: EdgeInsets.only(top: 15.h),
+                    padding: EdgeInsets.symmetric(horizontal: 50.w),
+                    child: TextNormal(
                         text: subTitle,
                         texteSize: 16,
                         textColors: AppColors.primarySecondaryElementText),
@@ -86,13 +87,13 @@ Widget _nextButton(int index, PageController controller, BuildContext context) {
       }
     },
     child: Container(
-      width: 325,
-      height: 50,
-      margin: const EdgeInsets.only(top: 80, left: 25, right: 25),
+      width: 325.w,
+      height: 50.h,
+      margin: EdgeInsets.only(top: 80.h, left: 25.w, right: 25.w),
       decoration: appBoxShadow(
           backgroundColor: AppColors.primaryElement, borderRadius: 15),
       child: Center(
-          child: textNormal(
+          child: TextNormal(
         text: index < 3 ? "Next" : "Get Started",
         texteSize: 16,
         textColors: Colors.white,

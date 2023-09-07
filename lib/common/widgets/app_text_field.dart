@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget appTextField(
     {TextEditingController? controller,
@@ -12,13 +13,24 @@ Widget appTextField(
     obscureText: obscureText,
     onChanged: (value) => func!(value),
     decoration: InputDecoration(
+        contentPadding: EdgeInsets.only(top: 5.h, left: 10.h),
         hoverColor: Colors.black,
         prefixIcon: Icon(
           icon,
         ),
         labelText: labelText,
         hintText: hintText,
+        enabledBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.transparent),
+        ),
+        focusedBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.transparent),
+        ),
+        disabledBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.transparent),
+        ),
         border: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.transparent),
             borderRadius: BorderRadius.all(Radius.circular(14.0)))),
   );
 }

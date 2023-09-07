@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shop_app_dbestech/common/utils/routes_router/router.dart';
+import 'package:flutter_shop_app_dbestech/common/utils/Routes/router.dart';
 import 'package:flutter_shop_app_dbestech/global.dart';
+import 'package:flutter_shop_app_dbestech/pages/home/view/home.dart';
 
 import '../../../pages/application/view/application.dart';
 import '../../../pages/register/view/sign_up.dart';
@@ -30,6 +31,9 @@ class AppPages {
       case AppRoutes.application:
         return MaterialPageRoute(
             builder: (_) => const Application(), settings: settings);
+      case AppRoutes.home:
+        return MaterialPageRoute(
+            builder: (_) => const Home(), settings: settings);
       default:
         return MaterialPageRoute(builder: (_) => Welcome(), settings: settings);
     }

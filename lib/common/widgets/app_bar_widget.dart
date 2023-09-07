@@ -21,14 +21,14 @@ AppBar buildAppBar(
     ),
     centerTitle: kIsWeb ? false : true,
     title: !kIsWeb
-        ? textNormal(
+        ? TextNormal(
             text: title,
             texteSize: 16,
             textColors: AppColors.primaryText,
           )
         : Align(
             alignment: Alignment.centerRight,
-            child: textNormal(
+            child: TextNormal(
                 text: title, texteSize: 16, textColors: Colors.white),
           ),
   );

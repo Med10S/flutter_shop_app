@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/colors.dart';
 
 BoxDecoration appBoxShadow(
-    {required Color backgroundColor,
-    required double borderRadius,
+    {Color backgroundColor = AppColors.primaryFourthElementText,
+    double borderRadius = 20,
+    BoxBorder? boxBorder,
     double sR = 1,
     double bR = 2}) {
   return BoxDecoration(
       color: backgroundColor,
       borderRadius: BorderRadius.circular(borderRadius),
+      border: boxBorder,
       boxShadow: [
         BoxShadow(
             color: Colors.grey.withOpacity(0.6),
@@ -19,9 +21,13 @@ BoxDecoration appBoxShadow(
 }
 
 BoxDecoration appBoxShadowWithRadius(
-    {required Color backgroundColor, double sR = 1, double bR = 2}) {
+    {Color backgroundColor = AppColors.primaryFourthElementText,
+    double sR = 1,
+    BoxBorder? boxBorder,
+    double bR = 2}) {
   return BoxDecoration(
       color: backgroundColor,
+      border: boxBorder,
       borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(20), topRight: Radius.circular(20)),
       boxShadow: [
@@ -36,7 +42,7 @@ BoxDecoration appBoxShadowWithRadius(
 BoxDecoration appBoxDecorationTextField({
   required Color backgroundColor,
   required double borderRadius,
-  Color borderColor = AppColors.primaryFourElementText,
+  Color borderColor = AppColors.primaryFourthElementText,
 }) {
   return BoxDecoration(
       color: backgroundColor,

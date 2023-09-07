@@ -1,17 +1,19 @@
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_shop_app_dbestech/common/entities/user.dart';
+import 'package:flutter_shop_app_dbestech/common/models/user.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/constants.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/global_loader/global_loader.dart';
 import 'package:flutter_shop_app_dbestech/global.dart';
-import 'package:flutter_shop_app_dbestech/pages/sing_in/notifier/sign_in_notifier.dart';
+import 'package:flutter_shop_app_dbestech/pages/sing_in/provider/sign_in_notifier.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import '../../../common/utils/routes_router/router.dart';
+import '../../../common/utils/Routes/router.dart';
 import '../../../common/widgets/popup_message.dart';
-import '../../register/err/sing_up_exeption_failure.dart';
+import '../../register/exceptions/sing_up_exeption_failure.dart';
 import '../repo/sign_in_repo.dart';
 
 class SignInController {
@@ -72,7 +74,9 @@ class SignInController {
     } on FirebaseAuthException catch (e) {
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
       showToastError(fToast: fToast, msg: ex.message);
-    } catch (e) {}
+    } catch (e) {
+      debugPrint(e.toString());
+    }
     ref.watch(appLoaderProvider.notifier).setLoaderValue(false);
   }
 
@@ -83,14 +87,22 @@ class SignInController {
     try {
       var navigator = Navigator.of(ref.context);
       //try ti remeber user data
-      Global.storageService
-          .setString(AppConstants.STORAGE_USER_PROFILE_KEY, "value");
+      Global.storageService.setString(
+          AppConstants.STORAGE_USER_PROFILE_KEY,
+          //value is a String jsonEncode return a String
+          jsonEncode({
+            'name': "mohammedsbihi",
+            'email': 'mohammedsbihi11@gmail.com',
+            'age': 19
+          }));
       Global.storageService
           .setString(AppConstants.STORAGE_USER_TOKEN_KEY, "value");
       navigator.pushNamedAndRemoveUntil(
           AppRoutes.application, (route) => false);
       //navigator.pushNamed("/Application");
-    } catch (e) {}
+    } catch (e) {
+      debugPrint(e.toString());
+    }
     //redirect to new page
   }
 }
