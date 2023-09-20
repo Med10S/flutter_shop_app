@@ -1,15 +1,14 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_shop_app_dbestech/common/services/http_utlis.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/app_styles.dart';
 import 'package:flutter_shop_app_dbestech/global.dart';
-
 import 'common/utils/Routes/routes.dart';
 
 Future<void> main() async {
   await Global.init();
-  HttpUtil();
   runApp(const ProviderScope(child: MyApp()));
 }
 

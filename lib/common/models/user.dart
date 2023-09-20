@@ -1,4 +1,6 @@
-class LogingRequesEntity {
+// ignore_for_file: non_constant_identifier_names
+
+class LogingRequestModel {
   int? type;
   String? name;
   String? description;
@@ -8,7 +10,7 @@ class LogingRequesEntity {
   String? openId;
   int? online;
 
-  LogingRequesEntity(
+  LogingRequestModel(
       {this.type,
       this.name,
       this.description,
@@ -25,7 +27,7 @@ class LogingRequesEntity {
         "email": email,
         "phone": phone,
         "avatar": avatar,
-        "openId": openId,
+        "open_id": openId,
         "online": online,
       };
 }
@@ -35,17 +37,17 @@ class UserLoginResponseEntity {
   String? msg;
   UserProfile? data;
   UserLoginResponseEntity({this.code, this.msg, this.data});
-  // factory UserLoginResponseEntity.fromJson(Map<String, dynamic> json) {
-  //   UserLoginResponseEntity(
-  //       code: json["code"],
-  //       msg: json["msg"],
-  //       data: UserProfile.fromJson(json["data"]));
-  // }
+  factory UserLoginResponseEntity.fromJson(Map<String, dynamic> json) {
+    return UserLoginResponseEntity(
+        code: json["code"],
+        msg: json["msg"],
+        data: UserProfile.fromJson(json["data"]));
+  }
 }
 
 //login result
 class UserProfile {
-  String? accessToken;
+  String? access_token;
   String? token;
   String? name;
   String? description;
@@ -53,7 +55,7 @@ class UserProfile {
   int? online;
   int? type;
   UserProfile(
-      {this.accessToken,
+      {this.access_token,
       this.token,
       this.name,
       this.description,
@@ -61,11 +63,8 @@ class UserProfile {
       this.online,
       this.type});
   factory UserProfile.fromJson(Map<String, dynamic> json) {
-    // if ((json["accessToken"]) == null || json["accessToken"].isEmpty) {
-    //   return UserProfile();
-    // }
     return UserProfile(
-      accessToken: json['accessToken'],
+      access_token: json['access_token'],
       token: json['token'],
       name: json['name'],
       description: json['description'],
@@ -75,7 +74,7 @@ class UserProfile {
     );
   }
   Map<String, dynamic> toJson() => {
-        "accessToken": accessToken,
+        "access_token": access_token,
         "token": token,
         "name": name,
         "description": description,

@@ -4,6 +4,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_shop_app_dbestech/common/utils/constants.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/image_res.dart';
 import 'package:flutter_shop_app_dbestech/common/widgets/app_shadow.dart';
 import 'package:flutter_shop_app_dbestech/pages/home/controller/home_controller.dart';
@@ -101,8 +102,10 @@ Widget bannerContainer({String imagePath = ImageRes.bureau}) {
   );
 }
 
-AppBar homeAppBar() {
+AppBar homeAppBar(WidgetRef ref) {
+  var profileState = ref.watch(homeUserProfileProvider);
   return AppBar(
+    backgroundColor: Colors.white,
     title: Container(
       margin: EdgeInsets.symmetric(horizontal: 7.w),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -111,12 +114,24 @@ AppBar homeAppBar() {
           width: 20.w,
           height: 30.h,
         ),
-        GestureDetector(
-          child: Icon(
-            Icons.person,
-            size: 40,
-          ),
-        )
+        profileState.when(
+            data: (data) => GestureDetector(
+                  child: ClipOval(
+                    child: Image.network(
+                      "${AppConstants.BASE_URL_For_ALL}${data.avatar!}",
+                      width: 50, // Ajustez la largeur selon vos besoins
+                      height: 50, // Ajustez la hauteur selon vos besoins
+                      fit: BoxFit
+                          .cover, // Ajustez le mode de recadrage selon vos besoins
+                    ),
+                  ),
+                ),
+            error: (error, stack) => Icon(
+                  Icons.person,
+                  size: 40,
+                ),
+            loading: () => SizedBox(
+                height: 40.h, width: 40.w, child: CircularProgressIndicator()))
       ]),
     ),
   );
@@ -185,18 +200,37 @@ class HomeMenuBar extends StatelessWidget {
 }
 
 class CourseItemGride extends StatelessWidget {
-  const CourseItemGride({super.key});
+  final WidgetRef ref;
+  const CourseItemGride({super.key, required this.ref});
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-        physics: const ScrollPhysics(),
-        shrinkWrap: true,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, crossAxisSpacing: 40),
-        itemCount: 6,
-        itemBuilder: (_, int index) {
-          return Image.asset(ImageRes.chaisefemme);
-        });
+    final courseList = ref.watch(homeCourseListProvider);
+    return courseList.when(
+      data: (data) {
+        return GridView.builder(
+            physics: const ScrollPhysics(),
+            shrinkWrap: true,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, crossAxisSpacing: 15, mainAxisSpacing: 15),
+            itemCount: data?.length,
+            itemBuilder: (_, int index) {
+              return ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.network(
+                  "${AppConstants.BASE_URL_For_NETWORK_IMAGE}${data?[index].thumbnail}",
+                ),
+              );
+            });
+      },
+      error: (error, stackTrace) => Center(
+        child: Text("error"),
+      ),
+      loading: () {
+        return Center(
+          child: Text("loding"),
+        );
+      },
+    );
   }
 }

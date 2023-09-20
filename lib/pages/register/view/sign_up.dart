@@ -36,7 +36,7 @@ class SingUp extends ConsumerWidget {
               body: loader == false
                   ? SingleChildScrollView(
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           SizedBox(
                             height: 40.h,

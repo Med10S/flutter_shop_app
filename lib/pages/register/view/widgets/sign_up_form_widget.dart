@@ -37,9 +37,9 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
 
     return Form(
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             //user name
             appTextField(

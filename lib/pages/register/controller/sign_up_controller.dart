@@ -29,15 +29,20 @@ class SignUpController {
 //--------------- input verification-------------------
 
     if (name.isEmpty) {
-      showToastError(fToast: fToast, msg: "Your name is empty");
+      // print("1");
+      toast2(color: Colors.red, msg: "Your name is empty");
       return;
     }
     if (password.isEmpty) {
-      showToastError(fToast: fToast, msg: "Your password is empty");
+      // print("2");
+
+      toast2(color: Colors.red, msg: "Your password is empty");
       return;
     }
     if (password != rePassword || password.isEmpty || rePassword.isEmpty) {
-      showToastError(fToast: fToast, msg: "Your password did not match");
+      // print("3");
+
+      toast2(color: Colors.red, msg: "Your password did not match");
       return;
     }
 // ----------------------------------------------------------
@@ -46,22 +51,35 @@ class SignUpController {
 
     try {
       final credential = await SignUpRepo.forebaseSignUp(email, password);
+      // print("credential are : $credential");
+      // print("credential.user =  : ${credential.user}");
 
       if (credential.user != null) {
         await credential.user?.sendEmailVerification();
-        showToastMessage(
-            fToast: fToast,
+        await credential.user?.updateDisplayName(name);
+        String photoURL = "uploads/default.png";
+        await credential.user?.updatePhotoURL(photoURL.toString());
+        // print("4");
+
+        toast2(
+            color: Colors.white,
             msg: '''An email has been send to verify your acount.
               Please open that email and confirm your identity''');
+        // print(10);
         context.pop();
       }
     } on FirebaseAuthException catch (e) {
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
-      showToastError(fToast: fToast, msg: ex.message);
+      // print("5");
+
+      toast2(color: Colors.red, msg: ex.message);
     } catch (_) {
       const ex = SignUpWithEmailAndPasswordFailure();
       if (kDebugMode) {
-        showToastError(fToast: fToast, msg: ex.message);
+        toast2(color: Colors.red, msg: ex.message);
+        // print("6");
+        // print(ex.message);
+        //showToastError(fToast: fToast, msg: ex.message);
       }
     }
     ref.watch(appLoaderProvider.notifier).setLoaderValue(false);

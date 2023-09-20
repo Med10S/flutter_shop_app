@@ -26,7 +26,12 @@ class StorageService {
     //so I am using jsonDecode to decode the data and get it like a json file with key and value
     var profile =
         _preferences.getString(AppConstants.STORAGE_USER_PROFILE_KEY) ?? "";
+    // print("profile  :$profile");
+
     var profileJson = jsonDecode(profile);
+
+    // print("profile json :$profileJson");
+
     var userProfile = UserProfile.fromJson(profileJson);
     return userProfile;
   }

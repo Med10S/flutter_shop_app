@@ -10,7 +10,7 @@ class ImageRes {
 class IconsRes {
   IconsRes._();
   static const String _iconBase = "assets/icons";
-  static const String appeleLogo = "$_iconBase/appele-logo.png";
+  static const String appeleLogo = "$_iconBase/apple-logo.png";
   static const String facebook = "$_iconBase/facebook.png";
   static const String google = "$_iconBase/google.png";
   static const String option = "$_iconBase/options.png";

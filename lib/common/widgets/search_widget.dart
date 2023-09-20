@@ -4,6 +4,7 @@ import 'package:flutter_shop_app_dbestech/common/utils/image_res.dart';
 import 'package:flutter_shop_app_dbestech/common/widgets/app_shadow.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_shop_app_dbestech/common/widgets/app_text_field.dart';
+import 'package:flutter_shop_app_dbestech/common/widgets/popup_message.dart';
 
 Widget searchBar() {
   return Row(
@@ -12,7 +13,7 @@ Widget searchBar() {
       //search txt box
       Container(
         height: 45.h,
-        width: 330.w,
+        width: 270.w,
         decoration: appBoxShadow(
             backgroundColor: AppColors.primaryBackgroud,
             boxBorder: Border.all(color: AppColors.primaryFourthElementText),
@@ -23,6 +24,7 @@ Widget searchBar() {
               width: 240.w,
               height: 40.h,
               child: appTextField(
+                enableborder: true,
                 icon: Icons.search,
                 hintText: "Search your course...",
                 func: (value) {},
@@ -33,6 +35,9 @@ Widget searchBar() {
       ),
       //search button
       GestureDetector(
+        onTap: () {
+          toast2(msg: "test", color: Colors.red);
+        },
         child: Container(
           padding: EdgeInsets.all(5.w),
           width: 40.w,

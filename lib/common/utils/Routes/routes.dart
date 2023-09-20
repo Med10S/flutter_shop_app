@@ -12,6 +12,7 @@ class AppPages {
   static MaterialPageRoute onGenerate(RouteSettings settings) {
     bool isloggedIn = Global.storageService.isloggedIn();
     bool isTheFirstTime = Global.storageService.getDivisefirstOpen();
+    print("is logged in $isloggedIn ");
     if (settings.name == AppRoutes.welcome && isTheFirstTime) {
       if (isloggedIn) {
         return MaterialPageRoute(

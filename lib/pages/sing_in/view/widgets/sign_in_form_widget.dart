@@ -38,10 +38,11 @@ class _SignInFormState extends ConsumerState<SignInForm> {
 
     return !loader
         ? Container(
+            alignment: Alignment.center,
             padding: EdgeInsets.symmetric(
                 vertical: 10.h, horizontal: kIsWeb ? 100.w : 14.w),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              // crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 appTextField(
                     controller: _controller.emailController,
@@ -73,7 +74,7 @@ class _SignInFormState extends ConsumerState<SignInForm> {
                       )),
                 ),
                 SizedBox(
-                  height: 100.h,
+                  height: kIsWeb ? 40.h : 100.h,
                 ),
                 Center(
                     child: appButton(

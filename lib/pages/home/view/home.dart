@@ -36,7 +36,7 @@ class _HomeState extends ConsumerState<Home> {
         SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        appBar: homeAppBar(),
+        appBar: homeAppBar(ref),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 25.w),
           child: SingleChildScrollView(
@@ -58,7 +58,7 @@ class _HomeState extends ConsumerState<Home> {
                 ),
                 HomeBanner(ref: ref, controller: _controller),
                 const HomeMenuBar(),
-                const CourseItemGride(),
+                CourseItemGride(ref: ref),
               ],
             ),
           ),
