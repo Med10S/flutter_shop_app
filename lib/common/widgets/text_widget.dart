@@ -8,19 +8,26 @@ class TextNormal extends StatelessWidget {
   final bool useTextColor;
   final TextAlign textAlign;
   final Color textColors;
-  const TextNormal({
-    super.key,
-    required this.text,
-    required this.texteSize,
-    this.fontWeight = FontWeight.normal,
-    this.textAlign = TextAlign.center,
-    this.textColors = AppColors.primaryBG,
-    this.useTextColor = true,
-  });
+  final bool softWrap;
+  final int? maxLines;
+  final TextOverflow? overflow;
+  const TextNormal(
+      {super.key,
+      required this.text,
+      required this.texteSize,
+      this.fontWeight = FontWeight.normal,
+      this.textAlign = TextAlign.center,
+      this.textColors = AppColors.primaryBG,
+      this.useTextColor = true,
+      this.softWrap = false,
+      this.maxLines,
+      this.overflow});
 
   @override
   Widget build(BuildContext context) {
     return textNormal(
+      maxLines: maxLines,
+      softWrap: softWrap,
       text: text,
       texteSize: texteSize,
       fontWeight: fontWeight,
@@ -37,9 +44,15 @@ Widget textNormal(
     required bool useTextColor,
     required TextAlign textAlign,
     required double texteSize,
+    required bool softWrap,
+    int? maxLines,
+    TextOverflow? overflow,
     required Color textColors}) {
   return Text(
     text,
+    maxLines: maxLines,
+    softWrap: softWrap,
+    overflow: overflow,
     textAlign: textAlign,
     style: useTextColor
         ? TextStyle(

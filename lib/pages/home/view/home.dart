@@ -35,35 +35,40 @@ class _HomeState extends ConsumerState<Home> {
         :*/
         SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: homeAppBar(ref),
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 25.w),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: 20.h,
+          backgroundColor: Colors.white,
+          appBar: homeAppBar(ref),
+          body: RefreshIndicator(
+              onRefresh: () {
+                return ref
+                    .refresh(homeCourseListProvider.notifier)
+                    .fetchCourseList();
+              },
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 25.w),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      const HelloText(),
+                      const UserName(),
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      searchBar(),
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      HomeBanner(ref: ref, controller: _controller),
+                      const HomeMenuBar(),
+                      CourseItemGride(ref: ref),
+                    ],
+                  ),
                 ),
-                const HelloText(),
-                const UserName(),
-                SizedBox(
-                  height: 20.h,
-                ),
-                searchBar(),
-                SizedBox(
-                  height: 20.h,
-                ),
-                HomeBanner(ref: ref, controller: _controller),
-                const HomeMenuBar(),
-                CourseItemGride(ref: ref),
-              ],
-            ),
-          ),
-        ),
-      ),
+              ))),
     );
   }
 }

@@ -1,6 +1,7 @@
 // ignore_for_file: unnecessary_null_comparison
 
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/constants.dart';
 import 'package:flutter_shop_app_dbestech/global.dart';
 
@@ -24,15 +25,21 @@ class HttpUtil {
     dio = Dio(option);
     dio.interceptors.add(InterceptorsWrapper(
       onRequest: (options, handler) {
-        print("new request ${options.data}");
+        if (kDebugMode) {
+          print("new request ${options.data}");
+        }
         handler.next(options);
       },
       onResponse: (responce, handler) {
-        print("new responce $responce");
+        if (kDebugMode) {
+          print("new responce $responce");
+        }
         handler.next(responce);
       },
       onError: (DioException e, handler) {
-        print("my error is $e");
+        if (kDebugMode) {
+          print("my error is $e");
+        }
         ErrorEntity eInfo = createErrorEntity(e);
         onError(eInfo);
       },

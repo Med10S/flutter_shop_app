@@ -8,6 +8,7 @@ import 'package:flutter_shop_app_dbestech/common/utils/constants.dart';
 import 'package:flutter_shop_app_dbestech/common/utils/image_res.dart';
 import 'package:flutter_shop_app_dbestech/common/widgets/app_shadow.dart';
 import 'package:flutter_shop_app_dbestech/pages/home/controller/home_controller.dart';
+import '../../../../common/utils/Routes/router.dart';
 import '../../../../common/utils/colors.dart';
 import '../../../../common/widgets/text_widget.dart';
 import '../../../../global.dart';
@@ -206,31 +207,38 @@ class CourseItemGride extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final courseList = ref.watch(homeCourseListProvider);
-    return courseList.when(
-      data: (data) {
-        return GridView.builder(
-            physics: const ScrollPhysics(),
-            shrinkWrap: true,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, crossAxisSpacing: 15, mainAxisSpacing: 15),
-            itemCount: data?.length,
-            itemBuilder: (_, int index) {
-              return ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.network(
-                  "${AppConstants.BASE_URL_For_NETWORK_IMAGE}${data?[index].thumbnail}",
-                ),
-              );
-            });
-      },
-      error: (error, stackTrace) => Center(
-        child: Text("error"),
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 18.h),
+      child: courseList.when(
+        data: (data) {
+          return GridView.builder(
+              physics: const ScrollPhysics(),
+              shrinkWrap: true,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, crossAxisSpacing: 15, mainAxisSpacing: 15),
+              itemCount: data?.length,
+              itemBuilder: (_, int index) {
+                return AppBoxDecorationImage(
+                  func: () {
+                    Navigator.pushNamed(context, AppRoutes.courseDetail,
+                        arguments: {"id": data[index].id!});
+                  },
+                  courseItem: data![index],
+                  imagePath:
+                      "${AppConstants.BASE_URL_For_NETWORK_IMAGE}${data[index].thumbnail}",
+                  fit: BoxFit.fill,
+                );
+              });
+        },
+        error: (error, stackTrace) => Center(
+          child: Text("error"),
+        ),
+        loading: () {
+          return Center(
+            child: Text("loding"),
+          );
+        },
       ),
-      loading: () {
-        return Center(
-          child: Text("loding"),
-        );
-      },
     );
   }
 }

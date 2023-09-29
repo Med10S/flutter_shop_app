@@ -1,9 +1,31 @@
-import 'dart:convert';
+// ignore_for_file: non_constant_identifier_names
 
 class CourseResponceEntity {
   int? id;
   CourseResponceEntity({this.id});
   Map<String, dynamic> toJson() => {"id": id};
+}
+
+class CourseRequestEntity {
+  int? id;
+
+  CourseRequestEntity({
+    this.id,
+  });
+
+  // Factory method to create a CourseRequestEntity object from a JSON map
+  factory CourseRequestEntity.fromJson(Map<String, dynamic> json) {
+    return CourseRequestEntity(
+      id: json["id"],
+    );
+  }
+
+  // Method to convert a CourseRequestEntity object to a JSON map
+  Map<String, dynamic> toJson() {
+    return {
+      "id": id,
+    };
+  }
 }
 
 class SeachRequestEntity {
@@ -80,7 +102,7 @@ class CourseItem {
   int? price;
   String? amount_total;
   int? lesson_num;
-  int? video_len;
+  int? video_length;
   int? down_num;
   int? follow;
   int? score;
@@ -98,7 +120,7 @@ class CourseItem {
       this.thumbnail,
       this.user_token,
       this.video,
-      this.video_len});
+      this.video_length});
   factory CourseItem.fromJson(Map<String, dynamic> json) {
     return CourseItem(
       user_token: json["user_token"],
@@ -109,7 +131,7 @@ class CourseItem {
       price: json["price"],
       amount_total: json["amount_total"],
       lesson_num: json["lesson_num"],
-      video_len: json["video_len"],
+      video_length: json["video_length"],
       down_num: json["down_num"],
       follow: json["follow"],
       score: json["score"],
@@ -126,7 +148,7 @@ class CourseItem {
       "price": price,
       "amount_total": amount_total,
       "lesson_num": lesson_num,
-      "video_len": video_len,
+      "video_length": video_length,
       "down_num": down_num,
       "follow": follow,
       "score": score,
