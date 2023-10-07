@@ -58,15 +58,16 @@ class LessonDetailResponceEntity {
 
   LessonDetailResponceEntity({this.code, this.data, this.msg});
 
-  // Factory method to create a LessonDetailResponceEntity object from a JSON map
   factory LessonDetailResponceEntity.fromJson(Map<String, dynamic> json) {
+    var list = json['data'] as List;
+    List<LessonVideoItem> videosList = list
+        .map((video) => LessonVideoItem.fromJson(video['video'][0]))
+        .toList();
+
     return LessonDetailResponceEntity(
       code: json["code"],
       msg: json["msg"],
-      data: json["data"] != null
-          ? List<LessonVideoItem>.from((json["data"] as List)
-              .map((item) => LessonVideoItem.fromJson(item)))
-          : [],
+      data: json["data"] != null ? videosList : [],
     );
   }
 }
@@ -95,4 +96,28 @@ class LessonRequestEntity {
   int? id;
   LessonRequestEntity({this.id});
   Map<String, dynamic> toJson() => {"id": id};
+}
+
+class LessonVideo {
+  final List<LessonVideoItem> lessonItem;
+  final Future<void>? initialVideoPlayer;
+  final bool isPlay;
+  final String? url;
+
+  LessonVideo(
+      {this.lessonItem = const <LessonVideoItem>[],
+      this.initialVideoPlayer,
+      this.url = "",
+      this.isPlay = false});
+  LessonVideo copyWith(
+      {List<LessonVideoItem>? lessonItem,
+      Future<void>? initialVideoPlayer,
+      String? url,
+      bool? isPlay}) {
+    return LessonVideo(
+        lessonItem: lessonItem ?? this.lessonItem,
+        initialVideoPlayer: initialVideoPlayer ?? this.initialVideoPlayer,
+        url: url ?? this.url,
+        isPlay: isPlay ?? this.isPlay);
+  }
 }

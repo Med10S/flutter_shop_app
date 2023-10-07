@@ -75,7 +75,7 @@ class _CourseDetailState extends ConsumerState<CourseDetail> {
                 ? const SizedBox()
                 : Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [LessonInfo(lessonData: data)],
+                    children: [LessonInfo(lessonData: data, ref: ref)],
                   ),
             error: (error, stackTrace) => const Center(
               child: Text("error"),
